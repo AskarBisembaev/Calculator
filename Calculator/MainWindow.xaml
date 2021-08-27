@@ -1,0 +1,80 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="Calculator" Height="550" Width="400">
+    <Window.Resources>
+        <SolidColorBrush x:Key="FigureColorBack" Color="#1976d3"/>
+        <SolidColorBrush x:Key="OperatorColorBack" Color="#0e47a1"/>
+        <SolidColorBrush x:Key="ClearColorBack" Color="#ff6f00"/>
+        <SolidColorBrush x:Key="MemoryColorBack" Color="#43a047"/>
+
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="26"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="3"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--дисплей-->
+        <Grid Grid.Row="0" Background="WhiteSmoke">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="txtMemory"  Text=""
+                       FontSize="26" Background="{StaticResource MemoryColorBack}" Foreground="White"/>
+            <TextBlock x:Name="txtDisplay"  Grid.Row="1" Text="0"
+                 TextAlignment="Right" VerticalAlignment="Center" FontSize="50"/>
+            
+        </Grid>
+        <!--клавиатура-->
+        <Grid Grid.Row="1" Background="Lavender">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btn1" Tag="1" Content="1" Grid.Row="4" Grid.Column="0" Background="{StaticResource FigureColorBack}" Click="btnOperand_Click"/>
+            <Button x:Name="btn2" Tag="2" Content="2" Grid.Row="4" Grid.Column="1" Background="{StaticResource FigureColorBack}" Click="btnOperand_Click"/>
+            <Button x:Name="btn3" Tag="3" Content="3" Grid.Row="4" Grid.Column="2" Background="{StaticResource FigureColorBack}" Click="btnOperand_Click"/>
+            <Button x:Name="btn4" Tag="4" Content="4" Grid.Row="3" Grid.Column="0" Background="{StaticResource FigureColorBack}" Click="btnOperand_Click"/>
+            <Button x:Name="btn5" Tag="5" Content="5" Grid.Row="3" Grid.Column="1" Background="{StaticResource FigureColorBack}" Click="btnOperand_Click"/>
+            <Button x:Name="btn6" Tag="6" Content="6" Grid.Row="3" Grid.Column="2" Background="{StaticResource FigureColorBack}" Click="btnOperand_Click"/>
+            <Button x:Name="btn7" Tag="7" Content="7" Grid.Row="2" Grid.Column="0" Background="{StaticResource FigureColorBack}" Click="btnOperand_Click"/>
+            <Button x:Name="btn8" Tag="8" Content="8" Grid.Row="2" Grid.Column="1" Background="{StaticResource FigureColorBack}" Click="btnOperand_Click"/>
+            <Button x:Name="btn9" Tag="9" Content="9" Grid.Row="2" Grid.Column="2" Background="{StaticResource FigureColorBack}" Click="btnOperand_Click"/>
+            <Button x:Name="btn0" Tag="0" Content="0" Grid.Row="5" Grid.ColumnSpan="2" Background="{StaticResource FigureColorBack}" Click="btnOperand_Click"/>
+            <Button x:Name="btnDot" Tag="," Content="." Grid.Row="5" Grid.Column="2" Background="{StaticResource FigureColorBack}" Click="btnOperand_Click"/>
+            <Button x:Name="btnBack" Tag="back" Content="BACK" Grid.Row="0" Grid.Column="3" Background="{StaticResource ClearColorBack}" Click="btnOperand_Click"/>
+            <Button x:Name="btnClear" Tag="clear" Content="C" Grid.Row="0" Grid.Column="2" Background="{StaticResource ClearColorBack}" Click="btnOperand_Click"/>
+            <Button x:Name="PlusMinus" Tag="sign" Content="±" Grid.Row="1" Grid.Column="2" Background="{StaticResource OperatorColorBack}" Click="btnOperand_Click" />
+
+            <Button x:Name="equaly" Tag="equaly" Content="=" Grid.Row="5" Grid.Column="3" Background="{StaticResource OperatorColorBack}" Click="btnEqualy_click" Margin="2.8,1.4,2.6,5"/>
+            <Button x:Name="add" Tag="add" Content="+" Grid.Row="4" Grid.Column="3" Background="{StaticResource OperatorColorBack}" Click="btnOperator_Click"/>
+            <Button x:Name="substract" Tag="substract" Content="-" Grid.Row="3" Grid.Column="3" Background="{StaticResource OperatorColorBack}" Click="btnOperator_Click"/>
+            <Button x:Name="multiply" Tag="multiply" Content="×" Grid.Row="2" Grid.Column="3" Background="{StaticResource OperatorColorBack}" Click="btnOperator_Click"/>
+            <Button x:Name="divide" Tag="divide" Content="÷" Grid.Row="1" Grid.Column="3" Background="{StaticResource OperatorColorBack}" Click="btnOperator_Click"/>
+            <Button x:Name="MR" Tag="MR" Content="MR" Grid.Row="1" Grid.ColumnSpan="2" Background="{StaticResource MemoryColorBack}" Click="Memory_Click"/>
+            <Button x:Name="MC" Tag="MC" Content="MC" Grid.Row="0" Grid.Column="1" Background="{StaticResource MemoryColorBack}" Click="Memory_Click"/>
+            <Button x:Name="MPlus" Tag="M+" Content="M+" Grid.Row="0" Grid.Column="0" Background="{StaticResource MemoryColorBack}" Click="Memory_Click"/>
+        </Grid>
+    </Grid>
+</Window>
